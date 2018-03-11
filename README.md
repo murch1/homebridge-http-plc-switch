@@ -1,7 +1,9 @@
 # homebridge-http-light
 
-Works with a http accessible light device on HomeBridge Platform
-This plug-in is designed to work with a Node-RED flow that communicates with a PLC via modbus. Check sample-flow.json to see how the Node-RED side of things works.
+Works with a HTTP accessible light device on HomeBridge Platform
+This plug-in is designed to work with a Node-RED flow that communicates with a PLC via modbus. 
+Import sample-flow.json in to Node-RED to see how this side of things works.
+The PLC uses the leading-edge pulse to toggle the light on and off.
 
 # Installation
 
