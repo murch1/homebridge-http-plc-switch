@@ -1,11 +1,11 @@
-# homebridge-fakebulb
+# homebridge-http-light
 
-Simulates a (fake) light bulb device on HomeBridge Platform
+Works with a http accessible light device on HomeBridge Platform
 
 # Installation
 
 1. Install homebridge using: npm install -g homebridge
-2. Install this plugin using: npm install -g homebridge-fakebulb
+2. Install in to npm using: npm install -g https://github.com/murch1/homebridge-http-light.git
 3. Update your configuration file. See sample-config.json in this repository for a sample. 
 
 # Configuration
@@ -15,8 +15,8 @@ Configuration sample:
  ```
 "accessories": [
         {
-            "accessory":      "FakeBulb",
-            "name":           "Test lamp",
+            "accessory":      "http-light",
+            "name":           "Lamp",
             "bulb_name":      "Lamp1"
         }
 ]
