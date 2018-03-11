@@ -4,6 +4,7 @@ Works with a HTTP accessible light device on HomeBridge Platform
 This plug-in is designed to work with a Node-RED flow that communicates with a PLC via modbus. 
 Import sample-flow.json in to Node-RED to see how this side of things works.
 The PLC uses the leading-edge pulse to toggle the light on and off.
+This plug-in has been adapted from homebridge-fakebulb (by Sergey Chemishkian) to suit my very specific installation. Feel free to hack away at it to make it work for you.
 
 # Installation
 
