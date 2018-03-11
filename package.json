@@ -1,7 +1,7 @@
 {
-  "name": "homebridge-fakebulb",
-  "version": "0.0.3",
-  "description": "Fake bulb plugin for homebridge: https://github.com/nfarina/homebridge",
+  "name": "homebridge-http-light",
+  "version": "0.0.1",
+  "description": "HTTP light plugin for homebridge: https://github.com/nfarina/homebridge. Adapted from homebridge-fakebulb, by Sergey Chemishkian.",
   "license": "MIT",
   "keywords": [
     "homebridge-plugin"
@@ -11,11 +11,11 @@
     "homebridge": ">=0.2.0"
   },
   "author": {
-    "name": "Sergey Chemishkian"
+    "name": "Ben Murchie"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/schemish/homebridge-fakebulb.git"
+    "url": "git://github.com/murch1/homebridge-http-light.git"
   },
   "dependencies": {
     "request": "^2.65.0"
