@@ -29,14 +29,13 @@ function getData(pilot,callback) {
   var options = {
         hostname: '127.0.0.1',          // NodeRED local HTTP server
         port: '1880',                   // NodeRED port
-        path: '/modbus&' + param,       // HTTP access point + parameters
+        path: '/modbus?' + param,       // HTTP access point + parameters
         method: 'GET',
   };
   req = http.request(options, function (res) {
     res.setEncoding('utf8');
     res.on('data', function (chunk) {
-        console.log('Light: ' + chunk);
-	callback(chunk);
+		callback(chunk);
     });
   });
   req.on('error', function(e) {
@@ -52,7 +51,7 @@ function getSetData(pilot,button,callback) {
   var options = {
         hostname: '127.0.0.1',          // NodeRED local HTTP server
         port: '1880',                   // NodeRED port
-        path: '/modbus&' + param,       // HTTP access point + parameters
+        path: '/modbus?' + param,       // HTTP access point + parameters
         method: 'GET',
   };
   req = http.request(options, function (res) {
@@ -93,7 +92,7 @@ LightAccessory.prototype.setPowerOn = function(powerCmd, callback) {
 }
 
 LightAccessory.prototype.getServices = function() {
-    var lightService = new Service.Light(this.name);
+    var lightService = new Service.Lightbulb(this.name);
     
     lightService
       .getCharacteristic(Characteristic.On)
