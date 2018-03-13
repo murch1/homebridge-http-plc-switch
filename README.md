@@ -13,7 +13,7 @@ This plug-in has been adapted from homebridge-fakebulb (by Sergey Chemishkian) t
 
 1. Install Node-RED. Go to https://nodered.org/docs/getting-started/installation for instructions.
 2. Install homebridge using: npm install -g homebridge
-2. Install homebridge-http-light in to npm using: npm install -g git://github.com/murch1/homebridge-http-light.git
+2. Install homebridge-http-light in to npm using: npm install git://github.com/murch1/homebridge-http-light.git
 3. Update your ~/.homebridge/config.json configuration file. See sample-config.json in this repository for a sample. 
 
 # Configuration
