@@ -8,22 +8,22 @@ var Pilot, Button;
 module.exports = function(homebridge) {
   Service = homebridge.hap.Service;
   Characteristic = homebridge.hap.Characteristic;
-  homebridge.registerAccessory("homebridge-http-light", "http-light", LightAccessory);
+  homebridge.registerAccessory("homebridge-http-plc-switch", "http-plc-switch", SwitchAccessory);
 }
 
-function LightAccessory(log, config) {
+function SwitchAccessory(log, config) {
 	this.log = log;
 	
 	// Configuration
 	this.name = config["name"];
-	this.lightName = config["light_name"] || this.name; // fallback to "name" if you didn't specify an exact "light_name"    
-    // Accessory information
-    this.manufacturer    = config["manufacturer"] || "MurchHome";
-    this.model           = config["model"] || "MH-Light";
-    this.serial          = config["serial"] || "LT-0001";	
-	// Light
-	this.switchAddr = config["switchAddr"] || 16394;    // Modbus address on remote PLC to switch light on/off (momentary/ push button)
-	this.statusAddr = config["statusAddr"] || 16994;    // Modbus address on remote PLC to read status of light
+	this.switchName = config["switch_name"] || this.name; // fallback to "name" if you didn't specify an exact "switch_name"    
+    	// Accessory information
+    	this.manufacturer    = config["manufacturer"] || "MurchHome";
+    	this.model           = config["model"] || "MH-Switch";
+    	this.serial          = config["serial"] || "SW-0001";	
+	// Switch
+	this.switchAddr = config["switchAddr"] || 16394;    // Modbus address on remote PLC to switch on/off (momentary/ push button)
+	this.statusAddr = config["statusAddr"] || 16994;    // Modbus address on remote PLC to read status of switch
   
 }
 
@@ -64,9 +64,9 @@ function sendData(param, callback) {
 		req.end();
 }
 
-LightAccessory.prototype = {
+SwitchAccessory.prototype = {
 
-	light: undefined,
+	switch: undefined,
 	
 	getPowerOn: function(callback) { 
 		var that = this; 
@@ -89,7 +89,7 @@ LightAccessory.prototype = {
 			if (returnValue) status = 1;
 			if (status != powerCmd) {
 				getSetData(Pilot,Button,function(returnValue2) {
-					that.light.getCharacteristic(Characteristic.On).getValue();
+					that.switch.getCharacteristic(Characteristic.On).getValue();
 					callback(null);
 				});	
 			} else {
@@ -107,14 +107,14 @@ LightAccessory.prototype = {
             .setCharacteristic(Characteristic.SerialNumber, this.serial);
         services.push(informationService);
 		
-		var lightService = new Service.Lightbulb(this.lightName + ' Light');
+		var switchService = new Service.Switch(this.switchName + ' Switch');
     
-		lightService
+		switchService
       		.getCharacteristic(Characteristic.On)
       		.on('get', this.getPowerOn.bind(this))
       		.on('set', this.setPowerOn.bind(this));
-    	this.light = lightService;
-    	services.push(this.light);
+    	this.switch = switchService;
+    	services.push(this.switch);
     	
 		return services;
 	}
