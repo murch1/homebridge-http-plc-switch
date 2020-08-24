@@ -10,8 +10,8 @@
 
     "accessories": [
         {
-            "accessory":      "http-light",
-            "name":           "Family Light",
+            "accessory":      "http-plc-switch",
+            "name":           "Family Switch",
             "light_name":     "Family",
             "switchAddr":     "16394",
             "statusAddr":     "16994"
