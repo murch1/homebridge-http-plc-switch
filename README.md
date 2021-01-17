@@ -27,6 +27,7 @@ Configuration sample:
             "accessory":      "http-plc-switch",
             "name":           "Bedroom LED Outlet Switch",
             "switch_name":    "Bedroom",
+            "host": "192.168.1.100",           // Defaults to 127.0.0.1 if not defined
             "switchAddr":     "16394",         // PLC modbus address that acts as the push button to switch on the light
             "statusAddr":     "16994"          // PLC modbus address that acts as the pilot light to read the status of the light
         }
